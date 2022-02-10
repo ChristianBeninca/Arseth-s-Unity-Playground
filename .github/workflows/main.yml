@@ -1,0 +1,26 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    container: Unity_2020.3.22.f1_Windows
+    steps:
+        - name: Checkout Project
+          uses: actions/checkout@v1
+
+        - name: Decrypy License File
+          run: openssl aes-256-cbc -f -in .github\Unity_v2020.x.ulf.enc -k ${{ secrets.UNITY_LICENSE_DECRYPT_KEY }} >> .github\Unity_v2020.x.ulf
+
+        - name: Activate Unity
+          run: /opt/unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .github\Unity_v2020.x.ulf || exit 0
+
+        - name: Building for Windows
+          run: /opt/unity/Editor/Unity -quit -batchmode -nographics -silent-crashes  -noUpm -logFile - projectPath . -buildWindows64Player ./bin-win64/CISample.exe
+#       - name: Building for Android
+
+        - name: Archive Windows Build
+          uses: action/upload-artifact@v1
+          with:
+            name: CISampleWin64Binary
+            path: .bin-win64
+
