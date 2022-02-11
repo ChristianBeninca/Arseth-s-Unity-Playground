@@ -19,7 +19,7 @@ jobs:
 #       - name: Building for Android
 
         - name: Archive Windows Build
-          uses: action/upload-artifact@v1
+          uses: action/upload-artifact@v2
           with:
             name: CISampleWin64Binary
             path: .bin-win64
