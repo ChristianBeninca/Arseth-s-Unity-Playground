@@ -3,7 +3,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: Unity_2020.3.22.f1_Windows
+    container: unityci/editor:ubuntu-2020.3.22f1-base-0.17.0
     steps:
         - name: Checkout Project
           uses: actions/checkout@v2
