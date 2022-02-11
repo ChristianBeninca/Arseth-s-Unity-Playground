@@ -2,11 +2,11 @@ name: CI
 on: [push]
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     container: Unity_2020.3.22.f1_Windows
     steps:
         - name: Checkout Project
-          uses: actions/checkout@v1
+          uses: actions/checkout@v2
 
         - name: Decrypy License File
           run: openssl aes-256-cbc -f -in .github\Unity_v2020.x.ulf.enc -k ${{ secrets.UNITY_LICENSE_DECRYPT_KEY }} >> .github\Unity_v2020.x.ulf
