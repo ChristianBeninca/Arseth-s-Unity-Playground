@@ -55,6 +55,7 @@ jobs:
           path: ${{ steps.testRunner.outputs.artifactsPath }}
           
   buildWindows:
+    needs: testRunner
     name: Build
     runs-on: ubuntu-latest
     strategy:
