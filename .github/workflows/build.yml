@@ -56,7 +56,7 @@ jobs:
           
   buildWindows:
     needs: testRunner
-    name: Build
+    name: Build for Windows 🖥️
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
