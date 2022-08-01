@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 1784618445126683536}
   - component: {fileID: 1784618445126683541}
   - component: {fileID: 1784618445126683538}
-  - component: {fileID: 1784618445126683539}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1784618445126683539
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784618445126683537}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1905240738478932789
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,12 +95,12 @@ GameObject:
   - component: {fileID: 1790565129934133197}
   - component: {fileID: 2932579024152713565}
   - component: {fileID: 1189749422200863145}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1790565129934133197
 Transform:
@@ -144,8 +129,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
-  m_Range: 10
+  m_Intensity: 2
+  m_Range: 20
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10
