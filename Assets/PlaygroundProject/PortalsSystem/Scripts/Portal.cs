@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class Portal : MonoBehaviour
 {
     bool portalLoaded = false;
-    Transform playerCamera, otherPortal;
+    public Transform playerCamera, otherPortal;
     Camera otherCamera;
     Material thisMaterial;
     [SerializeField] string inputKey, outputKey;
@@ -18,6 +18,7 @@ public class Portal : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(this);
         Setup();
     }
 
@@ -27,8 +28,7 @@ public class Portal : MonoBehaviour
         thisMaterial = GetComponentInChildren<Renderer>().material = new Material(portalShader);
 
         int sceneId = PortalLinks.Instance.GetSceneByKey(outputKey);
-
-        Debug.Log("<color=pink>" + SceneManager.GetSceneByBuildIndex(sceneId).isLoaded + "</color>");
+        Debug.Log("sceneid: " + sceneId);
         if (!SceneManager.GetSceneByBuildIndex(sceneId).isLoaded)
         {
             var progress = SceneManager.LoadSceneAsync(sceneId, LoadSceneMode.Additive);
@@ -37,7 +37,7 @@ public class Portal : MonoBehaviour
                 otherPortal = PortalLinks.Instance.GetPortalByKey(outputKey).transform;
                 otherCamera = otherPortal.GetComponentInChildren<Camera>();
                 PortalTextureSetup();
-            }; //Tentar entender depois porque eu preciso passar "op" e não posso deixar os parênteses vazios.
+            }; //Tentar entender depois porque eu preciso passar "op" e nï¿½o posso deixar os parï¿½nteses vazios.
         }
         else
         {
@@ -68,7 +68,7 @@ public class Portal : MonoBehaviour
     void Update()
     {
         if(portalLoaded)
-        SyncCameraTransform();
+            SyncCameraTransform();
     }
 
     Transform GetOtherPortalByKey(string outputKey)

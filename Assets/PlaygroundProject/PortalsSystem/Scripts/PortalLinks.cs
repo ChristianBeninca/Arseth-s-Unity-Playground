@@ -39,27 +39,25 @@ public class PortalLinks : MonoBehaviour
     }
 
     [ReadOnly] [SerializeField] List<string> inputKeysList;
-    [ReadOnly] List<Portal> portalsList;
+    [ReadOnly] [SerializeField] List<Portal> portalsList;
     [ReadOnly] [SerializeField] List<int> scenesList;
 
-    [ExecuteInEditMode] void ClearAllLists()
+    [ExecuteInEditMode] public void ClearAllLists()
     {
-        inputKeysList.Clear();
-        portalsList.Clear();
-        scenesList.Clear();
+        inputKeysList?.Clear();
+        portalsList?.Clear();
+        scenesList?.Clear();
     }
 
     [ExecuteInEditMode]
     public void PopulateAllPortalsToLists()
     {
-        //ClearAllLists();
-
-        inputKeysList.Clear();
-        portalsList.Clear();
-        scenesList.Clear();
+        ClearAllLists();
 
         int sceneCount = SceneManager.sceneCountInBuildSettings;
         Scene mainScene = SceneManager.GetSceneByName("MainScene");
+
+        Scene portalsScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
 
         for (int i = 0; i < sceneCount; i++)
         {
@@ -91,7 +89,7 @@ public class PortalLinks : MonoBehaviour
     public int GetSceneByKey(string key)
     {
         int i = 0;
-        while (i <= inputKeysList.Count)
+        while (i < inputKeysList.Count)
         {
           
             if (inputKeysList[i] == key)
@@ -106,7 +104,7 @@ public class PortalLinks : MonoBehaviour
     public Portal GetPortalByKey(string key)
     {
         int i = 0;
-        while (i <= inputKeysList.Count)
+        while (i < inputKeysList.Count)
         {
           
             if (inputKeysList[i] == key)

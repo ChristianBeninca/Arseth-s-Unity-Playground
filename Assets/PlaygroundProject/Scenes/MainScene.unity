@@ -168,12 +168,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputKeysList:
-  - StartRoom
+  - StartRoom1
+  - StartRoom2
   - Corridor1
   - Corridor2
   - John'sRoom
-  - DemoMap
-  scenesList: 0100000000000000000000000200000003000000
+  - DemoMap1
+  - DemoMap2
+  portalsList:
+  - {fileID: 2092201927}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  scenesList: 01000000010000000000000000000000020000000300000003000000
 --- !u!1 &329947313
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,7 +979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
       propertyPath: inputKey
-      value: StartRoom
+      value: StartRoom1
       objectReference: {fileID: 0}
     - target: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
       propertyPath: outputId
@@ -1046,3 +1056,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8788805615066424571, guid: 8908705356521584b8d3eef7df72c890, type: 3}
   m_PrefabInstance: {fileID: 2092201925}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2092201927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
+  m_PrefabInstance: {fileID: 2092201925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1973bb1b8cf5c514dbeff64a9dce4ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
