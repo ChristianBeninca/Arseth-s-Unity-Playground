@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PlaygroundProject/Scenes/CreepyCorridorScene.unity
+    path: Assets/PlaygroundProject/Scenes/CorridorScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/PlaygroundProject/Scenes/MainScene.unity
+    guid: 97847a01f746fd64d8c096c0ee66c290
+  - enabled: 1
+    path: Assets/PlaygroundProject/Scenes/John'sRoom.unity
+    guid: 16cb1015581f99649b94e3cc14c1428b
+  - enabled: 1
+    path: Assets/PlaygroundProject/Scenes/DemoScene.unity
+    guid: 0dd15d84f75afd644a6e0a970de62b59
   m_configObjects: {}

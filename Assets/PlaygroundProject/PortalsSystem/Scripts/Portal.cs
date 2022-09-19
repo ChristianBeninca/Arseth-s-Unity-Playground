@@ -1,27 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class Portal : MonoBehaviour
 {
-    Transform playerCamera;
-    [SerializeField] Transform otherPortal; // Fazer um get pra essa variável de forma dinâmica
+    bool portalLoaded = false;
+    Transform playerCamera, otherPortal;
     Camera otherCamera;
     Material thisMaterial;
     [SerializeField] string inputKey, outputKey;
+        public string InputKey { get => inputKey; }
+        public string OutputKey { get => outputKey; set => outputKey = value; }
     [SerializeField] Shader portalShader;
 
     void Start()
     {
         Setup();
-        PortalIDSetup();
-        PortalTextureSetup();
-    }
-
-    void Update()
-    {
-        SyncCameraTransform();
     }
 
     void Setup()
@@ -29,13 +26,26 @@ public class Portal : MonoBehaviour
         playerCamera = Camera.main.transform;
         thisMaterial = GetComponentInChildren<Renderer>().material = new Material(portalShader);
 
-        // otherPortal = GetOtherPortalByKey(outputId);
-        otherCamera = otherPortal.GetComponentInChildren<Camera>();
-    }
+        int sceneId = PortalLinks.Instance.GetSceneByKey(outputKey);
 
-    void PortalIDSetup()
-    {
-        PortalManager.AddPortalToList(inputKey, gameObject, gameObject.scene);
+        Debug.Log("<color=pink>" + SceneManager.GetSceneByBuildIndex(sceneId).isLoaded + "</color>");
+        if (!SceneManager.GetSceneByBuildIndex(sceneId).isLoaded)
+        {
+            var progress = SceneManager.LoadSceneAsync(sceneId, LoadSceneMode.Additive);
+            progress.completed += (op) =>
+            {
+                otherPortal = PortalLinks.Instance.GetPortalByKey(outputKey).transform;
+                otherCamera = otherPortal.GetComponentInChildren<Camera>();
+                PortalTextureSetup();
+            }; //Tentar entender depois porque eu preciso passar "op" e não posso deixar os parênteses vazios.
+        }
+        else
+        {
+            otherPortal = PortalLinks.Instance.GetPortalByKey(outputKey).transform;
+            otherCamera = otherPortal.GetComponentInChildren<Camera>();
+            PortalTextureSetup();
+        }
+        portalLoaded = true;
     }
 
     void PortalTextureSetup()
@@ -53,6 +63,12 @@ public class Portal : MonoBehaviour
         Quaternion portalRotationDifference = Quaternion.AngleAxis(angularDifferenceBetweenPortalRotations + 180, Vector3.up);
         Vector3 newCameraDirection = portalRotationDifference * playerCamera.forward;
         otherCamera.transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
+    }
+
+    void Update()
+    {
+        if(portalLoaded)
+        SyncCameraTransform();
     }
 
     Transform GetOtherPortalByKey(string outputKey)
