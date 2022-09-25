@@ -55,9 +55,7 @@ public class PortalLinks : MonoBehaviour
         ClearAllLists();
 
         int sceneCount = SceneManager.sceneCountInBuildSettings;
-        Scene mainScene = SceneManager.GetSceneByName("MainScene");
-
-        Scene portalsScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
+        Scene demoScene = SceneManager.GetSceneByName("DemoScene");
 
         for (int i = 0; i < sceneCount; i++)
         {
@@ -79,7 +77,7 @@ public class PortalLinks : MonoBehaviour
         {
             Scene scene = SceneManager.GetSceneByBuildIndex(i);
 
-            if (scene != mainScene)
+            if (scene != demoScene)
             {
                 EditorSceneManager.CloseScene(scene, true);
             }
@@ -89,12 +87,12 @@ public class PortalLinks : MonoBehaviour
     public int GetSceneByKey(string key)
     {
         int i = 0;
-        while (i < inputKeysList.Count)
+        while (i <= inputKeysList.Count)
         {
-          
             if (inputKeysList[i] == key)
+            {
                 return scenesList[i];
-
+            }
             i++;
         }
         Debug.LogError("Scene Not Found");
@@ -104,7 +102,7 @@ public class PortalLinks : MonoBehaviour
     public Portal GetPortalByKey(string key)
     {
         int i = 0;
-        while (i < inputKeysList.Count)
+        while (i <= inputKeysList.Count)
         {
           
             if (inputKeysList[i] == key)
