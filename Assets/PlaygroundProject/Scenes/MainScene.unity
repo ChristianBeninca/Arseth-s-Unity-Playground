@@ -132,26 +132,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 173152321}
-  - component: {fileID: 173152320}
+  - component: {fileID: 173152322}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: PortalLinks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &173152320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173152319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed23bba30dbe724c8a889e43bd02bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &173152321
 Transform:
   m_ObjectHideFlags: 0
@@ -167,6 +155,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &173152322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173152319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f947fa16a354fc4c9574fa58193eb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputKeysList:
+  - StartRoom1
+  - StartRoom2
+  - Corridor1
+  - Corridor2
+  - John'sRoom
+  - DemoMap1
+  - DemoMap2
+  portalsList:
+  - {fileID: 2092201927}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  scenesList: 01000000010000000000000000000000020000000300000003000000
 --- !u!1 &329947313
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +252,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 569b84b3d7557e4489babef7838f7714, type: 2}
+  - {fileID: 2100000, guid: 73d4d474bea301d4e8c557fe8114b8cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -333,7 +350,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 569b84b3d7557e4489babef7838f7714, type: 2}
+  - {fileID: 2100000, guid: 73d4d474bea301d4e8c557fe8114b8cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -431,7 +448,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 569b84b3d7557e4489babef7838f7714, type: 2}
+  - {fileID: 2100000, guid: 73d4d474bea301d4e8c557fe8114b8cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -468,6 +485,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6478711454554456771, guid: 4404d2e521038644ea28f34031e00e06, type: 3}
+      propertyPath: m_Depth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6478711454978550241, guid: 4404d2e521038644ea28f34031e00e06, type: 3}
       propertyPath: m_Name
       value: Player
@@ -680,7 +701,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 569b84b3d7557e4489babef7838f7714, type: 2}
+  - {fileID: 2100000, guid: 73d4d474bea301d4e8c557fe8114b8cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -778,7 +799,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 569b84b3d7557e4489babef7838f7714, type: 2}
+  - {fileID: 2100000, guid: 73d4d474bea301d4e8c557fe8114b8cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -876,7 +897,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 569b84b3d7557e4489babef7838f7714, type: 2}
+  - {fileID: 2100000, guid: 73d4d474bea301d4e8c557fe8114b8cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -957,8 +978,16 @@ PrefabInstance:
       value: StartRoom
       objectReference: {fileID: 0}
     - target: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
+      propertyPath: inputKey
+      value: StartRoom1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
       propertyPath: outputId
       value: LoadCorridor1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
+      propertyPath: outputKey
+      value: Corridor1
       objectReference: {fileID: 0}
     - target: {fileID: 8788805614550136252, guid: 8908705356521584b8d3eef7df72c890, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1027,3 +1056,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8788805615066424571, guid: 8908705356521584b8d3eef7df72c890, type: 3}
   m_PrefabInstance: {fileID: 2092201925}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2092201927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
+  m_PrefabInstance: {fileID: 2092201925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1973bb1b8cf5c514dbeff64a9dce4ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

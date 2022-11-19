@@ -578,11 +578,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7243795251096898699, guid: eda31cb9c791d8144bd68e462ec89638, type: 3}
   m_PrefabInstance: {fileID: 135039257}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &168979181 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8788805614550136253, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-  m_PrefabInstance: {fileID: 1484705564}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &171770660
 GameObject:
   m_ObjectHideFlags: 0
@@ -4545,8 +4540,16 @@ PrefabInstance:
       value: LoadCorridor2
       objectReference: {fileID: 0}
     - target: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
+      propertyPath: inputKey
+      value: Corridor2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
       propertyPath: outputId
       value: LoadCorridor1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
+      propertyPath: outputKey
+      value: Corridor1
       objectReference: {fileID: 0}
     - target: {fileID: 8788805613914470168, guid: 8908705356521584b8d3eef7df72c890, type: 3}
       propertyPath: m_Name
@@ -6593,49 +6596,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1783700802}
     m_Modifications:
-    - target: {fileID: 1693884618657547631, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693884618657547631, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -52.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1693884618657547631, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 3539975796915435058, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: otherPortal
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641435202839288721, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: ID
-      value: portal1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641435202839288721, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: outputId
-      value: portal2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641435202839288721, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: otherPortal
-      value: 
-      objectReference: {fileID: 1484705565}
-    - target: {fileID: 7110660487520677768, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: otherPortal
-      value: 
-      objectReference: {fileID: 168979181}
     - target: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: ID
-      value: LoadCorridor1
+      propertyPath: inputKey
+      value: Corridor1
       objectReference: {fileID: 0}
     - target: {fileID: 7867191339071354826, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: outputId
-      value: LoadCorridor2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788805613914470168, guid: 8908705356521584b8d3eef7df72c890, type: 3}
-      propertyPath: m_Name
-      value: WoodenFrame1
+      propertyPath: outputKey
+      value: Corridor2
       objectReference: {fileID: 0}
     - target: {fileID: 8788805615066424570, guid: 8908705356521584b8d3eef7df72c890, type: 3}
       propertyPath: m_Name
