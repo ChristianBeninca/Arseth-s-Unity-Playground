@@ -26,6 +26,7 @@ public class CombatManager : MonoBehaviour
     public void Attack()
     {
         anim.SetTrigger("Attack");
+        FindObjectOfType<AudioManager>().PlayOneShot("pew");
     }
 
     public void IsAttacked(int dmg)
