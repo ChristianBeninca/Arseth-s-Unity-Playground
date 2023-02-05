@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-    int 
-        life,
-        damage;
-    bool
-        blocking;
-    Animator 
-        anim;
+    int life;
+    int damage;
+    bool blocking;
+    Animator anim;
 
-    public Collider
-        lHand,
-        rHand;
+    Collider lHand;
+    Collider rHand;
 
-    public CombatManager(int lf, int dmg, Animator a = null)
+    private void Update()
     {
-        life = lf;
-        damage = dmg;
-        anim = a;
+        InputHolder();
+    }
+
+    void InputHolder()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0)) Attack();
     }
 
     public void Attack()
     {
-        anim.SetTrigger("Attack");
-        FindObjectOfType<AudioManager>().PlayOneShot("pew");
+        //anim.SetTrigger("Attack");
+        Debug.Log("<color=green>chegou</color>");
+        FindObjectOfType<AudioManager>().PlayOneShot("bang");
     }
 
     public void IsAttacked(int dmg)

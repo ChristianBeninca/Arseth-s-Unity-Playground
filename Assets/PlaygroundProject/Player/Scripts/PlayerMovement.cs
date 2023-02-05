@@ -7,45 +7,35 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Range(100,400)] float mouseSensitivity;
     [SerializeField] Animator anim;
 
-    float 
-        playerSpeed = 3f,
-        StandHeight = 1.5f,
-        DuckHeight = .75f,
-        sprintSpeed = 1.5f,
-        walkSpeed = 0.5f,
-        jumpHeight = 1f,
-        mouseX,
-        mouseY,
-        xRotation,
-        gravityValue = -9.81f * 1.5f;
-    bool 
-        sprint,
-        walk,
-        duck,
-        isGrounded;  
+    float playerSpeed = 3f;
+    float StandHeight = 1.5f;
+    float DuckHeight = .75f;
+    float sprintSpeed = 1.5f;
+    float walkSpeed = 0.5f;
+    float jumpHeight = 1f;
+    float mouseX;
+    float mouseY;
+    float xRotation;
+    float gravityValue = -9.81f * 1.5f;
+    bool sprint;
+    bool walk;
+    bool duck;
+    bool isGrounded;  
 
-    Transform 
-        playerCamera;
-    CharacterController
-        ct;
-    CombatManager
-        combat;
+    Transform playerCamera;
+    CharacterController characterController;
 
-    Vector3
-        fallVelocity;
-    LayerMask
-        groundMasks;
+    Vector3 fallVelocity;
+    LayerMask groundMasks;
 
 
     void Awake()
     {
         groundMasks = LayerMask.GetMask("Ground", "Static");
         playerCamera = Camera.main.transform.parent;
-        ct = gameObject.AddComponent<CharacterController>();
-        ct.radius = .35f;
-        ct.height = StandHeight;
-        ToggleCursor(1);
-        combat = new CombatManager(100, 10, anim);
+        characterController = gameObject.AddComponent<CharacterController>();
+        characterController.radius = .35f;
+        characterController.height = StandHeight;
     }
 
     private void Start()
@@ -81,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             else if (walk) movement *= (playerSpeed * walkSpeed);
             else movement *= playerSpeed;
          
-            ct.Move(movement * Time.deltaTime);
+            characterController.Move(movement * Time.deltaTime);
         }
     }
 
@@ -97,22 +87,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isGrounded) fallVelocity += Vector3.up * gravityValue * Time.deltaTime;
             
-        ct.Move(fallVelocity * Time.deltaTime);
+        characterController.Move(fallVelocity * Time.deltaTime);
     }
 
     void GroundCheck()
     {
-        isGrounded = Physics.CheckSphere(transform.position + (Vector3.down * ct.height / 2), .3f, groundMasks);
-        Debug.DrawLine(transform.position, transform.position + (Vector3.down * ct.height / 2), Color.magenta);
+        isGrounded = Physics.CheckSphere(transform.position + (Vector3.down * characterController.height / 2), .3f, groundMasks);
+        Debug.DrawLine(transform.position, transform.position + (Vector3.down * characterController.height / 2), Color.magenta);
         if (isGrounded && fallVelocity.y < 0)
             fallVelocity.y = -2f;
     }
 
     void InputHolder()
     {
-        // Just on Editor
-        if (Input.GetKeyDown(KeyCode.X)) { ToggleCursor(); }
-
         // Duck
         if (Input.GetKeyDown(KeyCode.LeftControl)) { ToggleDuck(); }
 
@@ -125,30 +112,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Jump
         if (Input.GetButtonDown("Jump")) { Jump(); }
-
-        //CombatManager.cs
-        if (Input.GetKeyDown(KeyCode.Mouse0)){ combat.Attack(); }
-    }
-
-    void ToggleCursor(int mode = -1)
-    {
-        switch (mode)
-        {
-            case 0:
-                Cursor.lockState = CursorLockMode.None;
-                break;
-
-            case 1:
-                Cursor.lockState = CursorLockMode.Locked;
-                break;
-
-            default:
-                if (Cursor.lockState == CursorLockMode.Locked)
-                    Cursor.lockState = CursorLockMode.None;
-                else
-                    Cursor.lockState = CursorLockMode.Locked;
-                break;
-        }
     }
 
     void ToggleDuck(int mode = -1)
@@ -176,15 +139,15 @@ public class PlayerMovement : MonoBehaviour
         float enumFPS =  EnumFPS(60);
         
 
-        while (ct.height > DuckHeight && duck)
+        while (characterController.height > DuckHeight && duck)
         {
-            ct.height = Mathf.Lerp(ct.height, DuckHeight, lerpTime);
+            characterController.height = Mathf.Lerp(characterController.height, DuckHeight, lerpTime);
             yield return new WaitForSeconds(enumFPS);
         }
 
-        while (ct.height < StandHeight && !duck)
+        while (characterController.height < StandHeight && !duck)
         {
-            ct.height = Mathf.Lerp(ct.height, StandHeight, lerpTime);
+            characterController.height = Mathf.Lerp(characterController.height, StandHeight, lerpTime);
             yield return new WaitForSeconds(enumFPS);
         }
 

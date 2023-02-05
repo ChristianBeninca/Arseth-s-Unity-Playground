@@ -19,13 +19,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Play("bang");
-    }
-
     public void Play(string name)
     {
+        Debug.Log("<color=blue>chegou</color>");
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s != null)
             s.source.Play();
