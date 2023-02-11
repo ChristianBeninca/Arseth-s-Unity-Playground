@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using Assets.Tools.Scripts;
+
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using System.Collections.Generic;
+#endif
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(PortalLinks))]
 public class PortalLinksEditor : Editor
 {
@@ -19,6 +24,7 @@ public class PortalLinksEditor : Editor
         }
     }
 }
+#endif
 
 public class PortalLinks : MonoBehaviour
 {
@@ -42,6 +48,7 @@ public class PortalLinks : MonoBehaviour
     [ReadOnly] [SerializeField] List<Portal> portalsList;
     [ReadOnly] [SerializeField] List<int> scenesList;
 
+#if UNITY_EDITOR
     [ExecuteInEditMode] public void ClearAllLists()
     {
         inputKeysList?.Clear();
@@ -83,6 +90,7 @@ public class PortalLinks : MonoBehaviour
             }
         }
     }
+#endif
 
     public int GetSceneByKey(string key)
     {

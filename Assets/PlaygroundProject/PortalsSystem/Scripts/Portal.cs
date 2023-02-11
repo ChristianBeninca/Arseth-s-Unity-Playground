@@ -1,22 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 public class Portal : MonoBehaviour
 {
-    bool
-        portalLoaded = false,
-        playerIsOverlapping = false;
+    bool portalLoaded = false;
+    bool playerIsOverlapping = false;
     public Transform playerCamera, otherPortal;
     Camera otherCamera;
     Material thisMaterial;
     GameObject player;
     [SerializeField] string inputKey, outputKey;
-        public string InputKey { get => inputKey; }
-        public string OutputKey { get => outputKey; set => outputKey = value; }
+    public string InputKey { get => inputKey; }
+    public string OutputKey { get => outputKey; set => outputKey = value; }
     [SerializeField] Shader portalShader;
     [SerializeField] BoxCollider portalCollider;
 
