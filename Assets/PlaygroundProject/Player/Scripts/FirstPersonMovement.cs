@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class FirstPersonMovement : MonoBehaviour
 {
     [SerializeField] [Range(100,400)] float mouseSensitivity;
     [SerializeField] Animator anim;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         InputHolder();
         MouseLook();
-        MoveController();
+        Move();
         Gravity();
     }
 
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
-    void MoveController()
+    void Move()
     {
         Vector3 movement = (transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical"));
         if (movement != Vector3.zero)

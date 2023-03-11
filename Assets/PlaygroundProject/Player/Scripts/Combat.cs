@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatManager : MonoBehaviour
+public class Combat: MonoBehaviour
 {
     int life;
     int damage;
@@ -24,8 +24,7 @@ public class CombatManager : MonoBehaviour
 
     public void Attack()
     {
-        //anim.SetTrigger("Attack");
-        Debug.Log("<color=green>chegou</color>");
+        anim.SetTrigger("Attack");
         FindObjectOfType<AudioManager>().PlayOneShot("bang");
     }
 
