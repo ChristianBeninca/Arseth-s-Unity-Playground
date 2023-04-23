@@ -2,36 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Combat: MonoBehaviour
+public class Combat : MonoBehaviour
 {
-    int life;
-    int damage;
-    bool blocking;
+    [SerializeField] int life = 100;
     Animator anim;
-
-    Collider lHand;
-    Collider rHand;
-
-    private void Update()
-    {
-        InputHolder();
-    }
-
-    void InputHolder()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) Attack();
-    }
 
     public void Attack()
     {
-        anim.SetTrigger("Attack");
+        //anim.SetTrigger("Attack");
+        Debug.Log("<color=green>chegou</color>");
         FindObjectOfType<AudioManager>().PlayOneShot("bang");
-    }
-
-    public void IsAttacked(int dmg)
-    {
-        if (blocking) Debug.Log("<color=green>avoid damage</color>");
-        else TakeDamage(dmg);
     }
 
     void TakeDamage(int dmg)

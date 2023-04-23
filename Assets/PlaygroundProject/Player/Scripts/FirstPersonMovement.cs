@@ -7,10 +7,10 @@ public class FirstPersonMovement : MonoBehaviour
     [SerializeField] [Range(100,400)] float mouseSensitivity;
     [SerializeField] Animator anim;
 
-    float playerSpeed = 3f;
+    float playerSpeed = 6f;
     float StandHeight = 1.5f;
     float DuckHeight = .75f;
-    float sprintSpeed = 1.5f;
+    float sprintSpeed = 2f;
     float walkSpeed = 0.5f;
     float jumpHeight = 1f;
     float mouseX;
@@ -32,7 +32,7 @@ public class FirstPersonMovement : MonoBehaviour
     void Awake()
     {
         groundMasks = LayerMask.GetMask("Ground", "Static");
-        playerCamera = Camera.main.transform.parent;
+        playerCamera = Camera.main.transform.parent.parent;
         characterController = gameObject.AddComponent<CharacterController>();
         characterController.radius = .35f;
         characterController.height = StandHeight;
