@@ -604,8 +604,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1721586593634937101}
-  - {fileID: 6478711456284396949}
   - {fileID: 7794206458475102961}
+  - {fileID: 6478711456284396949}
   m_Father: {fileID: 6478711454978550268}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -632,7 +632,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6478711456284396950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -642,7 +642,7 @@ Transform:
   - {fileID: 8914150006550019600}
   - {fileID: 8245426622455109629}
   m_Father: {fileID: 6478711455576471743}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6893002613355567920
 GameObject:
@@ -674,7 +674,7 @@ Transform:
   m_Children:
   - {fileID: 7985611096035094585}
   m_Father: {fileID: 6478711455576471743}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6931244290395892687
 GameObject:
@@ -935,9 +935,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1179130588913352197, guid: 01c48aad895c5994b80f0a4e64f24aed, type: 3}
+      propertyPath: swaySmooth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179130588913352197, guid: 01c48aad895c5994b80f0a4e64f24aed, type: 3}
+      propertyPath: swayIntensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025217811737556653, guid: 01c48aad895c5994b80f0a4e64f24aed, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8385760477157551861, guid: 01c48aad895c5994b80f0a4e64f24aed, type: 3}
       propertyPath: m_Name
       value: L96_Sniper_Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385760477157551861, guid: 01c48aad895c5994b80f0a4e64f24aed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9163668649801430095, guid: 01c48aad895c5994b80f0a4e64f24aed, type: 3}
       propertyPath: m_RootOrder
@@ -1008,6 +1024,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6478711456284396949}
     m_Modifications:
+    - target: {fileID: 1284835266890472599, guid: 55f722355541fcc429c4f7342a2e228d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3902736082128848079, guid: 55f722355541fcc429c4f7342a2e228d, type: 3}
       propertyPath: m_Name
       value: Pistol
@@ -1056,9 +1076,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4787082618033982568, guid: 55f722355541fcc429c4f7342a2e228d, type: 3}
+      propertyPath: activeSway
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787082618033982568, guid: 55f722355541fcc429c4f7342a2e228d, type: 3}
+      propertyPath: swaySmooth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787082618033982568, guid: 55f722355541fcc429c4f7342a2e228d, type: 3}
+      propertyPath: swayIntensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6250587819922151970, guid: 55f722355541fcc429c4f7342a2e228d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55f722355541fcc429c4f7342a2e228d, type: 3}
@@ -1676,6 +1708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 870_Shotgun
       objectReference: {fileID: 0}
+    - target: {fileID: 368480763649738659, guid: 7f81196b553bdd3499c70b26aee456de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1033237335067073817, guid: 7f81196b553bdd3499c70b26aee456de, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1719,6 +1755,22 @@ PrefabInstance:
     - target: {fileID: 1033237335067073817, guid: 7f81196b553bdd3499c70b26aee456de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513272859018469371, guid: 7f81196b553bdd3499c70b26aee456de, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367320795738966724, guid: 7f81196b553bdd3499c70b26aee456de, type: 3}
+      propertyPath: activeSway
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367320795738966724, guid: 7f81196b553bdd3499c70b26aee456de, type: 3}
+      propertyPath: swaySmooth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367320795738966724, guid: 7f81196b553bdd3499c70b26aee456de, type: 3}
+      propertyPath: swayIntensity
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7732676017411287949, guid: 7f81196b553bdd3499c70b26aee456de, type: 3}
       propertyPath: m_IsActive
