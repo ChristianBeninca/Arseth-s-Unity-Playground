@@ -140,7 +140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2471467177585696169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.29, y: -0.124, z: 0.163}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -203,7 +203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5970767203795044292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0.14, y: 0.024, z: -0.163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -341,10 +341,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b48c7a6870646a4b91e6d97d6dbb682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 6025217811737556653}
   visuals: {fileID: 323607569756792042}
+  anchor: {fileID: 5776289214369000108}
+  freeSight: {fileID: 706852012654031628}
+  ironSight: {fileID: 6489628530465069469}
   damage: 1
   rateOfFire: 1
   range: 1
   ammoCapacity: 1
   magazineSize: 1
+  aimVelocity: 0.6
+  swayIntensity: 1.8
+  swaySmooth: 10
