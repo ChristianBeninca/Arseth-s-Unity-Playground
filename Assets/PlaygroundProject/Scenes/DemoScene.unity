@@ -20699,6 +20699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalLinks
       objectReference: {fileID: 0}
+    - target: {fileID: 2881814368784919748, guid: 0d004befa00fe5b4ca4828c0aaae5518, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5368592084286110486, guid: 0d004befa00fe5b4ca4828c0aaae5518, type: 3}
       propertyPath: test
       value: asdasdasdasdasd
@@ -20721,15 +20725,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5368592084286110486, guid: 0d004befa00fe5b4ca4828c0aaae5518, type: 3}
       propertyPath: scenesList.Array.size
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5368592084286110486, guid: 0d004befa00fe5b4ca4828c0aaae5518, type: 3}
       propertyPath: portalsList.Array.size
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5368592084286110486, guid: 0d004befa00fe5b4ca4828c0aaae5518, type: 3}
       propertyPath: inputKeysList.Array.size
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5368592084286110486, guid: 0d004befa00fe5b4ca4828c0aaae5518, type: 3}
       propertyPath: scenesList.Array.data[0]
