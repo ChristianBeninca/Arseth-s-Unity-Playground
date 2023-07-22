@@ -154,6 +154,11 @@ public class FirstPersonMovement : MonoBehaviour
         yield return null;
     }
 
+    /// <summary>
+    /// TBD.
+    /// </summary>
+    /// <param name="fps">TBD.</param>
+    /// <returns>TBD.</returns>
     float EnumFPS(int fps) // Returns Expected framerate converted to float
     {
         return (1 / fps);
