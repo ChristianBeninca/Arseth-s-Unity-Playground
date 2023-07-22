@@ -21,6 +21,18 @@ public class PlayerCombat : Combat
     private void Update()
     {
         InputHolder();
+
+        //Weapon Animation
+        if (withdrawnedWeapon != null)
+        {
+            withdrawnedWeapon.UpdateSway();
+            if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0) 
+                withdrawnedWeapon.UpdateBreath(Weapon.WalkMode.Idle);
+            else if (Input.GetKey(KeyCode.LeftShift)) 
+                withdrawnedWeapon.UpdateBreath(Weapon.WalkMode.Run);
+            else 
+                withdrawnedWeapon.UpdateBreath(Weapon.WalkMode.Walk);
+        }
     }
 
     void InputHolder()
