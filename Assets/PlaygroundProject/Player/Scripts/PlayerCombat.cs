@@ -15,17 +15,31 @@ public class PlayerCombat : Combat
     public WeaponSlot equipedSlot;
     private WeaponSlot lastSlot;
     public Weapon primaryWeapon, secundaryWeapon, specialWeapon;
-    private Weapon drawnedWeapon;
+    private Weapon withdrawnedWeapon;
     private bool canChangeWeapon = true;
 
     private void Update()
     {
         InputHolder();
+
+        //Weapon Animation
+        if (withdrawnedWeapon != null)
+        {
+            withdrawnedWeapon.UpdateSway();
+            if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0) 
+                withdrawnedWeapon.UpdateBreath(Weapon.WalkMode.Idle);
+            else if (Input.GetKey(KeyCode.LeftShift)) 
+                withdrawnedWeapon.UpdateBreath(Weapon.WalkMode.Run);
+            else 
+                withdrawnedWeapon.UpdateBreath(Weapon.WalkMode.Walk);
+        }
     }
 
     void InputHolder()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0)) Attack();
+        if (Input.GetKeyDown(KeyCode.Mouse1)) withdrawnedWeapon.Aim(true);
+        if (Input.GetKeyUp(KeyCode.Mouse1)) withdrawnedWeapon.Aim(false);
         if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeWeapon(WeaponSlot.Primary);
         if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeWeapon(WeaponSlot.Secundary);
         if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeWeapon(WeaponSlot.Special);
@@ -43,8 +57,8 @@ public class PlayerCombat : Combat
 
             Debug.Log("Guardando arma <color=purple>" + equipedSlot + "</color>");
 
-            drawnedWeapon?.Sheath();
-            drawnedWeapon = null;
+            withdrawnedWeapon?.Sheath();
+            withdrawnedWeapon = null;
 
             equipedSlot = WeaponSlot.None;
         }
@@ -60,16 +74,16 @@ public class PlayerCombat : Combat
                     Debug.Log("Guardando arma <color=purple>" + lastSlot + "</color>");
                     equipedSlot = WeaponSlot.None;
 
-                    drawnedWeapon?.Sheath();
-                    drawnedWeapon = null;
+                    withdrawnedWeapon?.Sheath();
+                    withdrawnedWeapon = null;
 
                     break;
 
                 case WeaponSlot.Primary:
                     Debug.Log("Trocando para arma primária");
 
-                    drawnedWeapon?.Sheath();
-                    drawnedWeapon = primaryWeapon;
+                    withdrawnedWeapon?.Sheath();
+                    withdrawnedWeapon = primaryWeapon;
 
                     equipedSlot = WeaponSlot.Primary;
                     break;
@@ -77,8 +91,8 @@ public class PlayerCombat : Combat
                 case WeaponSlot.Secundary:
                     Debug.Log("Trocando para arma secundária");
 
-                    drawnedWeapon?.Sheath();
-                    drawnedWeapon = secundaryWeapon;
+                    withdrawnedWeapon?.Sheath();
+                    withdrawnedWeapon = secundaryWeapon;
 
                     equipedSlot = WeaponSlot.Secundary;
                     break;
@@ -86,14 +100,14 @@ public class PlayerCombat : Combat
                 case WeaponSlot.Special:
                     Debug.Log("Trocando para arma especial");
 
-                    drawnedWeapon?.Sheath();
-                    drawnedWeapon = specialWeapon;
+                    withdrawnedWeapon?.Sheath();
+                    withdrawnedWeapon = specialWeapon;
 
                     equipedSlot = WeaponSlot.Special;
                     break;
             }
 
-            if(drawnedWeapon != null) StartCoroutine(DrawAfterSheath());
+            if(withdrawnedWeapon != null) StartCoroutine(DrawAfterSheath());
         }
     }
 
@@ -101,7 +115,7 @@ public class PlayerCombat : Combat
     {
         canChangeWeapon = false;
         yield return new WaitForSeconds(.2f);
-        drawnedWeapon.Draw();
+        withdrawnedWeapon.Draw();
         canChangeWeapon = true;
     }
 

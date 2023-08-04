@@ -10,7 +10,6 @@ public class Combat : MonoBehaviour
     public void Attack()
     {
         //anim.SetTrigger("Attack");
-        Debug.Log("<color=green>chegou</color>");
         FindObjectOfType<AudioManager>().PlayOneShot("bang");
     }
 

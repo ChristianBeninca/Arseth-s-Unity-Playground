@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766560693684343802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.049999952, z: 0.203}
+  m_LocalPosition: {x: -0.094, y: 0.026, z: -0.017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,13 +131,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4694e916ffafdab49a5c2b42a8a2baa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 1284835266890472599}
   visuals: {fileID: 6250587819922151970}
+  anchor: {fileID: 6320706778250135634}
+  freeSight: {fileID: 6633608678806501471}
+  ironSight: {fileID: 974183072494767579}
   damage: 1
   rateOfFire: 1
   range: 1
   ammoCapacity: 1
   magazineSize: 1
+  aimVelocity: 1
+  swayIntensity: 1
+  swaySmooth: 10
 --- !u!1 &4048863389518781461
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4048863389518781461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.094, y: -0.076, z: 0.22}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -186,7 +191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4194184874051114080
 Transform:
   m_ObjectHideFlags: 0
