@@ -14,7 +14,7 @@ public class PortalLinksEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        EditorGUILayout.LabelField("Use this to automatically populate portals o  dictionary");
+        EditorGUILayout.LabelField("Use this to automatically populate portals on dictionary");
         DrawDefaultInspector();
 
         PortalLinks portalLinks = (PortalLinks)target;
@@ -62,11 +62,12 @@ public class PortalLinks : MonoBehaviour
         ClearAllLists();
 
         int sceneCount = SceneManager.sceneCountInBuildSettings;
-        Scene demoScene = SceneManager.GetSceneByName("DemoScene");
+        Scene mainScene = SceneManager.GetSceneByName("DemoScene");
 
         for (int i = 0; i < sceneCount; i++)
         {
             string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
+            if (SceneUtility.GetScenePathByBuildIndex(i) == SceneManager.GetActiveScene().path) return;
             EditorSceneManager.OpenScene(SceneUtility.GetScenePathByBuildIndex(i), OpenSceneMode.Additive);
         }
 
@@ -84,7 +85,7 @@ public class PortalLinks : MonoBehaviour
         {
             Scene scene = SceneManager.GetSceneByBuildIndex(i);
 
-            if (scene != demoScene)
+            if (scene != mainScene)
             {
                 EditorSceneManager.CloseScene(scene, true);
             }
@@ -95,7 +96,7 @@ public class PortalLinks : MonoBehaviour
     public int GetSceneByKey(string key)
     {
         int i = 0;
-        while (i <= inputKeysList.Count)
+        while (i < inputKeysList.Count)
         {
             if (inputKeysList[i] == key)
             {
@@ -103,7 +104,7 @@ public class PortalLinks : MonoBehaviour
             }
             i++;
         }
-        Debug.LogError("Scene Not Found");
+        Debug.LogError(key + "Scene Not Found");
         return -1;
     }
     
