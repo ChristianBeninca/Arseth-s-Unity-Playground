@@ -1,22 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 
 public class Portal : MonoBehaviour
 {
-    bool portalLoaded = false;
-    bool playerIsOverlapping = false;
-    public Transform playerCamera, otherPortal;
-    Camera otherCamera;
-    Material thisMaterial;
-    GameObject player;
-    [SerializeField] string inputKey, outputKey;
-    public string InputKey { get => inputKey; }
-    public string OutputKey { get => outputKey; set => outputKey = value; }
+    private bool portalLoaded = false;
+    private bool playerIsOverlapping = false;
+    private Transform playerCamera;
+    private Transform otherPortal;
+    private Camera otherCamera;
+    private Material thisMaterial;
+    private GameObject player;
+
+    [SerializeField] string inputKey;
+    [SerializeField] string outputKey;
+
     [SerializeField] Shader portalShader;
     [SerializeField] BoxCollider portalCollider;
+
+    #region Properties
+    public string InputKey 
+    {
+        get => inputKey;
+    }
+    
+    public string OutputKey 
+    {
+        get => outputKey; 
+        set => outputKey = value;
+    }
+    #endregion
 
     void Start()
     {
@@ -69,22 +81,15 @@ public class Portal : MonoBehaviour
     void Teleporter()
     {
         Vector3 portalToPlayer = player.transform.position - (transform.position + portalCollider.center);
-        Debug.Log("<color=green>portal to player: " + portalToPlayer + "</color>");
         float dotProduct = Vector3.Dot(transform.forward, portalToPlayer);
 
-        Debug.Log("<color=green>dotproduct: " + dotProduct + "</color>");
-
-        if (dotProduct > 0f)
+        if (dotProduct > 0f) //Teleport
         {
-            Debug.Log("<color=purple>teleport</color>");
             float rotationDiff = -Quaternion.Angle(transform.rotation, otherPortal.rotation);
             rotationDiff += 180;
+
             player.transform.Rotate(Vector3.up, rotationDiff);
-
-            Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
-            player.transform.position = otherPortal.position;
-
-            //playerIsOverlapping = false;
+            player.transform.position = otherPortal.position + portalToPlayer;
         }
     }
 
@@ -109,7 +114,7 @@ public class Portal : MonoBehaviour
         }
         else
         {
-            otherPortal = PortalLinks.Instance.GetPortalByKey(outputKey).transform;
+            otherPortal = PortalLinks.Instance.GetPortalByKey(outputKey).transform; 
             otherCamera = otherPortal.GetComponentInChildren<Camera>();
             PortalTextureSetup();
         }
