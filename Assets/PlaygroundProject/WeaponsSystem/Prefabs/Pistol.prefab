@@ -131,18 +131,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4694e916ffafdab49a5c2b42a8a2baa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visuals: {fileID: 6250587819922151970}
-  anchor: {fileID: 6320706778250135634}
-  freeSight: {fileID: 6633608678806501471}
-  ironSight: {fileID: 974183072494767579}
-  damage: 1
-  rateOfFire: 1
-  range: 1
-  ammoCapacity: 1
-  magazineSize: 1
-  aimVelocity: 1
+  visuals_: {fileID: 6917697134609516573}
+  anchor_: {fileID: 6320706778250135634}
+  freeSight_: {fileID: 6633608678806501471}
+  ironSight_: {fileID: 974183072494767579}
+  shootSounds_:
+  - {fileID: 8300000, guid: 48b3fbfb1ca6c2b4185191310f8f956c, type: 3}
+  - {fileID: 8300000, guid: 695ad67adb6ff4448948a8f8bdb303f6, type: 3}
+  rechargeSound_: {fileID: 0}
+  impactEffect_: {fileID: 1025285306637258, guid: 85362aec409703349b263c0e2ccb7535, type: 3}
   swayIntensity: 1
   swaySmooth: 10
+  fireRate: 5
+  damage: 30
+  range: 50
+  ammoCapacity: 35
+  magazineSize: 7
+  aimVelocity: 1
 --- !u!1 &4048863389518781461
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 524097018506123370}
   m_Layer: 10
-  m_Name: Design
+  m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

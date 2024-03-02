@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 535525030897691750}
   m_Layer: 10
-  m_Name: Design
+  m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,10 +341,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b48c7a6870646a4b91e6d97d6dbb682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visuals: {fileID: 323607569756792042}
-  anchor: {fileID: 5776289214369000108}
-  freeSight: {fileID: 706852012654031628}
-  ironSight: {fileID: 6489628530465069469}
+  visuals_: {fileID: 4750258231699853505}
+  anchor_: {fileID: 5776289214369000108}
+  freeSight_: {fileID: 706852012654031628}
+  ironSight_: {fileID: 6489628530465069469}
+  shoot:
+    name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  recharge:
+    name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
   damage: 1
   rateOfFire: 1
   range: 1

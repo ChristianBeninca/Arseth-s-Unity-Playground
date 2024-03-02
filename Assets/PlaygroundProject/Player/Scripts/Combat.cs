@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Combat : MonoBehaviour
@@ -7,7 +5,7 @@ public class Combat : MonoBehaviour
     [SerializeField] int life = 100;
     Animator anim;
 
-    public void Attack()
+    protected virtual void Attack()
     {
         //anim.SetTrigger("Attack");
         FindObjectOfType<AudioManager>().PlayOneShot("bang");

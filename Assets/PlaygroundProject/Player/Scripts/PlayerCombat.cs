@@ -47,6 +47,12 @@ public class PlayerCombat : Combat
         if (Input.GetKeyDown(KeyCode.Q)) ChangeWeapon(lastSlot);
     }
 
+    protected override void Attack()
+    {
+        //base.Attack();
+        withdrawnedWeapon.Shoot();
+    }
+
     void ChangeWeapon(WeaponSlot newWeapon)
     {
         if (!canChangeWeapon) return;
