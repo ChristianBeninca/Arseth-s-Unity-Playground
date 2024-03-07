@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public abstract class Weapon : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] private Transform anchor_;
     [SerializeField] private Transform freeSight_;
     [SerializeField] private Transform ironSight_;
+    [SerializeField] private VisualEffect muzzleFlash_;
     [SerializeField] private List<AudioClip> shootSounds_;
     [SerializeField] private AudioClip rechargeSound_;
     [SerializeField] private GameObject impactEffect_;
@@ -58,6 +60,8 @@ public abstract class Weapon : MonoBehaviour
 
         audioSource_.pitch = Random.Range(0.8f, 1.3f);
         audioSource_.PlayOneShot(shootSounds_[Random.Range(0, shootSounds_.Count - 1)]);
+
+        muzzleFlash_.Play();
 
         RaycastHit hit;
         Transform cameraTansform = Camera.main.transform;
