@@ -45,7 +45,7 @@ VisualEffect:
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
-  m_ResetSeedOnPlay: 1
+  m_ResetSeedOnPlay: 0
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
@@ -56,7 +56,7 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 2.270603, y: 1.1293575, z: 0.439855, w: 1}
+      - m_Value: {x: 2.9960785, y: 1.4901961, z: 0.5803922, w: 0}
         m_Name: New Color
         m_Overridden: 1
     m_Uint:

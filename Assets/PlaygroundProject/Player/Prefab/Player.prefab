@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574108998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -390,16 +390,16 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 20.78461
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: 2
@@ -435,7 +435,6 @@ MonoBehaviour:
   m_CameraType: 0
   m_Cameras:
   - {fileID: 3639305927379552583}
-  - {fileID: 6913696254974106570}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -443,7 +442,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -459,7 +458,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6478711454554456773}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -468,7 +467,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: 67bc2bd56083e08449a0059307195032, type: 2}
 --- !u!81 &6258942473712348716
 AudioListener:
   m_ObjectHideFlags: 0
@@ -488,6 +487,7 @@ GameObject:
   - component: {fileID: 6478711454978550268}
   - component: {fileID: 6478711454978550267}
   - component: {fileID: 3485003953180684269}
+  - component: {fileID: 3199925787562793782}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -543,6 +543,18 @@ MonoBehaviour:
   primaryWeapon: {fileID: 6582160106075662797}
   secundaryWeapon: {fileID: 2751990754826527760}
   specialWeapon: {fileID: 2097369848086158775}
+--- !u!114 &3199925787562793782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478711454978550241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca0e1e092016ee4b92ac2e1c4b41288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6478711455420784173
 GameObject:
   m_ObjectHideFlags: 0
