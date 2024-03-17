@@ -139,7 +139,8 @@ MonoBehaviour:
   shootSounds_:
   - {fileID: 8300000, guid: 48b3fbfb1ca6c2b4185191310f8f956c, type: 3}
   - {fileID: 8300000, guid: 695ad67adb6ff4448948a8f8bdb303f6, type: 3}
-  rechargeSound_: {fileID: 0}
+  rechargeSound_: {fileID: 8300000, guid: bd4088137062441408304a25d01d1def, type: 3}
+  outOfAmmo_: {fileID: 8300000, guid: 9091211ef6eb0b94a9bd5ef8ec30d897, type: 3}
   impactEffect_: {fileID: 1025285306637258, guid: 85362aec409703349b263c0e2ccb7535, type: 3}
   swayIntensity: 1
   swaySmooth: 10

@@ -19,14 +19,15 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] private VisualEffect muzzleFlash_;
     [SerializeField] private List<AudioClip> shootSounds_;
     [SerializeField] private AudioClip rechargeSound_;
+    [SerializeField] private AudioClip outOfAmmo_;
     [SerializeField] private GameObject impactEffect_;
     [SerializeField] private float swayIntensity;
     [SerializeField] private float swaySmooth;
     [SerializeField] private float fireRate;
     [SerializeField] private int damage;
     [SerializeField] private float range;
-    [SerializeField] private float ammoCapacity;
-    [SerializeField] private float magazineSize;
+    [SerializeField] private int ammoCapacity;
+    [SerializeField] private int magazineSize;
     [SerializeField] private float aimVelocity;
 
     private Quaternion originRotation;
@@ -40,6 +41,7 @@ public abstract class Weapon : MonoBehaviour
     private float walkCounter;
     private float runCounter;
     private float nextTimeToFire = 0f;
+    private int magazineAmmo = 3;
 
     public void Hide() { visuals_.SetActive(false); }
 
@@ -50,18 +52,37 @@ public abstract class Weapon : MonoBehaviour
         SetupSway();
         SetupBreath();
         SetupAudioSource();
+
+        if (magazineAmmo > magazineSize)
+        {
+            magazineAmmo = magazineSize;
+        }
     }
+
     public virtual void Update() { }
 
     public void Shoot()
     {
+        //Ammo control
+        if (magazineAmmo <= 0) 
+        {
+            audioSource_.PlayOneShot(outOfAmmo_);
+            //Recharge();
+            return;
+        }
+
+        //Firerate control
         if (Time.time <= nextTimeToFire) return;
         nextTimeToFire = Time.time + (1f / fireRate);
 
+        //Randomize audio
         audioSource_.pitch = Random.Range(0.8f, 1.3f);
         audioSource_.PlayOneShot(shootSounds_[Random.Range(0, shootSounds_.Count - 1)]);
 
+        //Play muzzleflash
         muzzleFlash_.Play();
+
+        magazineAmmo--;
 
         RaycastHit hit;
         Transform cameraTansform = Camera.main.transform;
@@ -81,6 +102,14 @@ public abstract class Weapon : MonoBehaviour
             GameObject ImpactGo = Instantiate(impactEffect_, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(ImpactGo, 2f);
         }
+    }
+
+    public void Recharge()
+    {
+        magazineAmmo = magazineSize;
+
+        audioSource_.pitch = 1;
+        audioSource_.PlayOneShot(rechargeSound_);
     }
 
     public void Sheath()
@@ -190,6 +219,7 @@ public abstract class Weapon : MonoBehaviour
             if (!TryGetComponent(out audioSource_))
             {
             audioSource_ = gameObject.AddComponent<AudioSource>();
+            audioSource_.volume = 0.4f;
             }
         }
     #endregion

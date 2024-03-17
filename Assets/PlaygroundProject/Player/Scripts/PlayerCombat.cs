@@ -40,6 +40,7 @@ public class PlayerCombat : Combat
         if (Input.GetKeyDown(KeyCode.Mouse0)) Attack();
         if (Input.GetKeyDown(KeyCode.Mouse1)) withdrawnedWeapon.Aim(true);
         if (Input.GetKeyUp(KeyCode.Mouse1)) withdrawnedWeapon.Aim(false);
+        if (Input.GetKeyDown(KeyCode.R)) withdrawnedWeapon.Recharge();
         if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeWeapon(WeaponSlot.Primary);
         if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeWeapon(WeaponSlot.Secundary);
         if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeWeapon(WeaponSlot.Special);
