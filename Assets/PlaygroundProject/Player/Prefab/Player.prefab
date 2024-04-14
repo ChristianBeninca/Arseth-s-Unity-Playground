@@ -540,8 +540,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 100
   equipedSlot: 0
-  primaryWeapon: {fileID: 6582160106075662797}
-  secundaryWeapon: {fileID: 2751990754826527760}
+  primaryWeapon: {fileID: 2751990754826527760}
+  secundaryWeapon: {fileID: 6582160106075662797}
   specialWeapon: {fileID: 2097369848086158775}
 --- !u!114 &3199925787562793782
 MonoBehaviour:
@@ -965,7 +965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8385760477157551861, guid: 01c48aad895c5994b80f0a4e64f24aed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163668649801430095, guid: 01c48aad895c5994b80f0a4e64f24aed, type: 3}
       propertyPath: m_RootOrder
@@ -1722,7 +1722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 368480763649738659, guid: 7f81196b553bdd3499c70b26aee456de, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1033237335067073817, guid: 7f81196b553bdd3499c70b26aee456de, type: 3}
       propertyPath: m_RootOrder

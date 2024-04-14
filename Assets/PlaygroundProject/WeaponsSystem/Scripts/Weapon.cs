@@ -28,10 +28,15 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] private float range;
     [SerializeField] private int ammoCapacity;
     [SerializeField] private int magazineSize;
-    [SerializeField] private float aimVelocity;
+    [SerializeField] private float aimSpeed;
+    [SerializeField] private float returnSpeed_;
+    [SerializeField] private float snappiness_;
+    [SerializeField] private Vector3 recoilConfig_;
 
     private Quaternion originRotation;
     private Vector3 originPosition;
+    private Vector3 currentRotation;
+    private Vector3 targetRotation;
 
     private AudioSource audioSource_;
     private bool onSheath = true;
@@ -59,7 +64,10 @@ public abstract class Weapon : MonoBehaviour
         }
     }
 
-    public virtual void Update() { }
+    public virtual void Update() 
+    {
+        ReturnRecoil();
+    }
 
     public void Shoot()
     {
@@ -83,6 +91,7 @@ public abstract class Weapon : MonoBehaviour
         muzzleFlash_.Play();
 
         magazineAmmo--;
+        FireRecoil();
 
         RaycastHit hit;
         Transform cameraTansform = Camera.main.transform;
@@ -145,10 +154,11 @@ public abstract class Weapon : MonoBehaviour
     {
         while (Vector3.Distance(anchor_.position, AimPosition(aiming)) >= .001f)
         {
-            anchor_.position = Vector3.Lerp(anchor_.position, AimPosition(aiming), Time.deltaTime * aimVelocity * 15);
+            Debug.Log(Vector3.Distance(anchor_.position, AimPosition(aiming)));
+            anchor_.position = Vector3.Lerp(anchor_.position, AimPosition(aiming), Time.deltaTime * aimSpeed * 15);
             yield return new WaitForEndOfFrame();
         }
-        anchor_.position = AimPosition(aiming);
+        anchor_.transform.position = AimPosition(aiming);
     }
 
     #region Sway
@@ -222,5 +232,19 @@ public abstract class Weapon : MonoBehaviour
             audioSource_.volume = 0.4f;
             }
         }
+    #endregion
+
+    #region Recoil
+    private void ReturnRecoil()
+    {
+        targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, returnSpeed_ * Time.deltaTime);
+        //currentRotation = Vector3.Slerp(currentRotation, targetRotation, snappiness_ * Time.fixedDeltaTime);
+        visuals_.transform.localRotation = Quaternion.Euler(targetRotation);
+    }
+
+    private void FireRecoil()
+    {
+        targetRotation += new Vector3(recoilConfig_.x, Random.Range(-recoilConfig_.y, recoilConfig_.y), Random.Range(-recoilConfig_.z, recoilConfig_.z));
+    }
     #endregion
 }

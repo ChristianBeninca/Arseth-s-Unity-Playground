@@ -8,13 +8,15 @@ public class PlayerCombat : Combat
     {
         None = 0,
         Primary = 1,
-        Secundary = 2,
-        Special = 3
+        //Secundary = 2,
+        //Special = 3
     }
 
     public WeaponSlot equipedSlot;
     private WeaponSlot lastSlot;
-    public Weapon primaryWeapon, secundaryWeapon, specialWeapon;
+    public Weapon primaryWeapon;
+    //public Weapon secundaryWeapon;
+    //public Weapon specialWeapon;
     private Weapon withdrawnedWeapon;
     private bool canChangeWeapon = true;
 
@@ -42,16 +44,19 @@ public class PlayerCombat : Combat
         if (Input.GetKeyUp(KeyCode.Mouse1)) withdrawnedWeapon.Aim(false);
         if (Input.GetKeyDown(KeyCode.R)) withdrawnedWeapon.Recharge();
         if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeWeapon(WeaponSlot.Primary);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeWeapon(WeaponSlot.Secundary);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeWeapon(WeaponSlot.Special);
+        //if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeWeapon(WeaponSlot.Secundary);  |Commented until pistol be completly operational|
+        //if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeWeapon(WeaponSlot.Special);    |Commented until pistol be completly operational|
         if (Input.GetKeyDown(KeyCode.Z)) ChangeWeapon(WeaponSlot.None);
         if (Input.GetKeyDown(KeyCode.Q)) ChangeWeapon(lastSlot);
     }
 
     protected override void Attack()
     {
-        //base.Attack();
-        withdrawnedWeapon.Shoot();
+        if (withdrawnedWeapon != null)
+        {
+            //base.Attack();
+            withdrawnedWeapon.Shoot();
+        }
     }
 
     void ChangeWeapon(WeaponSlot newWeapon)
@@ -95,23 +100,23 @@ public class PlayerCombat : Combat
                     equipedSlot = WeaponSlot.Primary;
                     break;
 
-                case WeaponSlot.Secundary:
-                    Debug.Log("Trocando para arma secundária");
+                //case WeaponSlot.Secundary:
+                //    Debug.Log("Trocando para arma secundária");
 
-                    withdrawnedWeapon?.Sheath();
-                    withdrawnedWeapon = secundaryWeapon;
+                //    withdrawnedWeapon?.Sheath();
+                //    withdrawnedWeapon = secundaryWeapon;
 
-                    equipedSlot = WeaponSlot.Secundary;
-                    break;
+                //    equipedSlot = WeaponSlot.Secundary;
+                //    break;
 
-                case WeaponSlot.Special:
-                    Debug.Log("Trocando para arma especial");
+                //case WeaponSlot.Special:
+                //    Debug.Log("Trocando para arma especial");
 
-                    withdrawnedWeapon?.Sheath();
-                    withdrawnedWeapon = specialWeapon;
+                //    withdrawnedWeapon?.Sheath();
+                //    withdrawnedWeapon = specialWeapon;
 
-                    equipedSlot = WeaponSlot.Special;
-                    break;
+                //    equipedSlot = WeaponSlot.Special;
+                //    break;
             }
 
             if(withdrawnedWeapon != null) StartCoroutine(DrawAfterSheath());
