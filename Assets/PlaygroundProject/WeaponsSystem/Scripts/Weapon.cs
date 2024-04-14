@@ -32,6 +32,8 @@ public abstract class Weapon : MonoBehaviour
 
     private Quaternion originRotation;
     private Vector3 originPosition;
+    private Vector3 currentRotation;
+    private Vector3 targetRotation;
 
     private AudioSource audioSource_;
     private bool onSheath = true;

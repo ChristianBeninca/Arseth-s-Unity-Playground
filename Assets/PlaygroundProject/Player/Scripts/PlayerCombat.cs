@@ -42,8 +42,8 @@ public class PlayerCombat : Combat
         if (Input.GetKeyUp(KeyCode.Mouse1)) withdrawnedWeapon.Aim(false);
         if (Input.GetKeyDown(KeyCode.R)) withdrawnedWeapon.Recharge();
         if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeWeapon(WeaponSlot.Primary);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeWeapon(WeaponSlot.Secundary);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeWeapon(WeaponSlot.Special);
+        //if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeWeapon(WeaponSlot.Secundary);  |Commented until pistol be completly operational|
+        //if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeWeapon(WeaponSlot.Special);    |Commented until pistol be completly operational|
         if (Input.GetKeyDown(KeyCode.Z)) ChangeWeapon(WeaponSlot.None);
         if (Input.GetKeyDown(KeyCode.Q)) ChangeWeapon(lastSlot);
     }
